@@ -1,0 +1,5 @@
+usage: train.py [-h]
+                [--stage {pretrain_ce,pretrain_bce,train_ce,train_bce,finetune}]
+                [--model_name {sed_v2s,sed_b3ns,sed_seresnext26t,cnn_v2s,cnn_resnet34d,cnn_b3ns,cnn_b0ns}]
+                [--use_pseudo]
+train.py: error: argument --model_name: invalid choice: 'cnn_bn0s' (choose from 'sed_v2s', 'sed_b3ns', 'sed_seresnext26t', 'cnn_v2s', 'cnn_resnet34d', 'cnn_b3ns', 'cnn_b0ns')

@@ -1,0 +1,82 @@
+Global seed set to 2020101911
+wandb: Currently logged in as: sugar. Use `wandb login --relogin` to force relogin
+wandb: wandb version 0.17.0 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.15.3
+wandb: Run data is saved locally in ./wandb/run-20240523_101732-d8fusxcx
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run sed_b3ns_train_bce
+wandb: ⭐️ View project at https://wandb.ai/sugar/BirdClef-2024
+wandb: 🚀 View run at https://wandb.ai/sugar/BirdClef-2024/runs/d8fusxcx
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+`Trainer(val_check_interval=1.0)` was configured so validation will run at the end of the training epoch..
+[rank: 0] Global seed set to 2020101911
+Initializing distributed: GLOBAL_RANK: 0, MEMBER: 1/2
+[rank: 1] Global seed set to 2020101911
+[rank: 1] Global seed set to 2020101911
+Initializing distributed: GLOBAL_RANK: 1, MEMBER: 2/2
+----------------------------------------------------------------------------------------------------
+distributed_backend=nccl
+All distributed processes registered. Starting with 2 processes
+----------------------------------------------------------------------------------------------------
+
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0,1]
+LOCAL_RANK: 1 - CUDA_VISIBLE_DEVICES: [0,1]
+
+   | Name                | Type              | Params
+-----------------------------------------------------------
+0  | loss_function       | BCEWithLogitsLoss | 0     
+1  | mixup               | Mixup             | 0     
+2  | mixup2              | Mixup2            | 0     
+3  | audio_transforms    | Compose           | 0     
+4  | time_mask_transform | TimeMasking       | 0     
+5  | freq_mask_transform | FrequencyMasking  | 0     
+6  | melspec_transform   | MelSpectrogram    | 0     
+7  | db_transform        | AmplitudeToDB     | 0     
+8  | bn0                 | BatchNorm2d       | 256   
+9  | encoder             | Sequential        | 10.7 M
+10 | fc1                 | Linear            | 2.4 M 
+11 | att_block           | AttBlockV2        | 559 K 
+-----------------------------------------------------------
+13.6 M    Trainable params
+0         Non-trainable params
+13.6 M    Total params
+54.467    Total estimated model params size (MB)
+===========================================================
+warning: missing audio files in ./inputs/train_audios
+warning: only audios available will be used for training
+===========================================================
+Training set size: 23779
+Validation set size: 5945
+Running trainer.fit
+Traceback (most recent call last):
+  File "/root/birdclef2024/train.py", line 104, in <module>
+    main()
+  File "/root/birdclef2024/train.py", line 97, in main
+    trainer.fit(model, train_dataloaders = dl_train, val_dataloaders = dl_val)
+  File "/opt/conda/lib/python3.10/site-packages/pytorch_lightning/trainer/trainer.py", line 520, in fit
+    call._call_and_handle_interrupt(
+  File "/opt/conda/lib/python3.10/site-packages/pytorch_lightning/trainer/call.py", line 42, in _call_and_handle_interrupt
+    return trainer.strategy.launcher.launch(trainer_fn, *args, trainer=trainer, **kwargs)
+  File "/opt/conda/lib/python3.10/site-packages/pytorch_lightning/strategies/launchers/subprocess_script.py", line 92, in launch
+    return function(*args, **kwargs)
+  File "/opt/conda/lib/python3.10/site-packages/pytorch_lightning/trainer/trainer.py", line 559, in _fit_impl
+    self._run(model, ckpt_path=ckpt_path)
+  File "/opt/conda/lib/python3.10/site-packages/pytorch_lightning/trainer/trainer.py", line 911, in _run
+    self.strategy.setup(self)
+  File "/opt/conda/lib/python3.10/site-packages/pytorch_lightning/strategies/ddp.py", line 163, in setup
+    self.configure_ddp()
+  File "/opt/conda/lib/python3.10/site-packages/pytorch_lightning/strategies/ddp.py", line 272, in configure_ddp
+    self.model = self._setup_model(_LightningModuleWrapperBase(self.model))
+  File "/opt/conda/lib/python3.10/site-packages/pytorch_lightning/strategies/ddp.py", line 182, in _setup_model
+    return DistributedDataParallel(module=model, device_ids=device_ids, **self._ddp_kwargs)
+  File "/opt/conda/lib/python3.10/site-packages/torch/nn/parallel/distributed.py", line 676, in __init__
+    _sync_module_states(
+  File "/opt/conda/lib/python3.10/site-packages/torch/distributed/utils.py", line 142, in _sync_module_states
+    _sync_params_and_buffers(
+  File "/opt/conda/lib/python3.10/site-packages/torch/distributed/utils.py", line 160, in _sync_params_and_buffers
+    dist._broadcast_coalesced(
+torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 54.00 MiB (GPU 1; 23.69 GiB total capacity; 52.67 MiB already allocated; 35.00 MiB free; 58.00 MiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF

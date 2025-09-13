@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "/root/birdclef2024/train.py", line 3, in <module>
+    from modules.preprocess import preprocess,prepare_cfg
+  File "/root/birdclef2024/modules/preprocess.py", line 1, in <module>
+    import pandas as pd
+ModuleNotFoundError: No module named 'pandas'

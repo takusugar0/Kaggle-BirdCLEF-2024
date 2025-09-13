@@ -1,0 +1,11 @@
+*.mp3
+*.ogg
+/wandb
+*.ckpt
+*.onnx
+*.pyc
+*.bin
+*.mapping
+*.xml
+*.pkl
+*.zip
