@@ -1,4 +1,4 @@
-# birdclef2024-20th-place-solution
+# [BirdCLEF 2024](https://www.kaggle.com/competitions/birdclef-2024/overview) – 20th Place Solution
 
 ## Environment
 
