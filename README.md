@@ -1,6 +1,6 @@
 # [BirdCLEF 2024](https://www.kaggle.com/competitions/birdclef-2024/overview) – 20th Place Solution
 
-## Environment
+## 0. Environment
 
 Training was conducted on [Vast.ai](https://vast.ai/) cloud GPU instances
 
@@ -10,7 +10,7 @@ Run the following command to install dependencies.
 pip3 install -r requirements.txt
 ```
 
-## Data Preparation
+## 1. Data Preparation
 
 ### train metadata, audios
 
@@ -31,7 +31,7 @@ https://www.kaggle.com/datasets/honglihang/background-noise
 
 Place files under: `./inputs/background_noise/`
 
-## Train
+## 2. Training
 
 Before running the training, export your WANDB_API_KEY environment variable instead of editing configs.
 
@@ -49,7 +49,7 @@ The model’s training and evaluation results can be checked on wandb, as shown 
 <img width="729" height="242" alt="image" src="https://github.com/user-attachments/assets/237b1d7a-07f9-4a6d-acb3-ea1270dd3b69" />
 
 
-## Convert model
+## 3. Model Conversion
 
 Run
 
@@ -61,6 +61,6 @@ The onnx model will be saved to the folder ./outputs/MODEL_NAME/onnx.
 
 The openvino model will be saved to the folder ./outputs/MODEL_NAME/openvino.
 
-## Inference
+## 4. Inference
 
 Inference is published in a kaggle kernel [here](https://www.kaggle.com/code/sugar0/birdclef2024-inference)
