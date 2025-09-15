@@ -45,6 +45,10 @@ python3 train.py --stage STAGE --model_name MODEL_NAME
 
 After training, the last checkpoint (model weights) will be saved to the folder ./outputs/MODEL_NAME/pytorch/STAGE
 
+The model’s training and evaluation results can be checked on wandb, as shown in the figure below.
+<img width="729" height="242" alt="image" src="https://github.com/user-attachments/assets/237b1d7a-07f9-4a6d-acb3-ea1270dd3b69" />
+
+
 ## Convert model
 
 Run
